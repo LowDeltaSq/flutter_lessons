@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:module_1/src/router/router.dart';
-import 'src/screens/login/auth_screen.dart';
+import 'package:module_1/src/screens/main/main_screen.dart';
+import 'src/screens/auth/login/auth_screen.dart';
 
 void main() => runApp(const ShopApp());
 
@@ -12,7 +13,7 @@ class ShopApp extends StatelessWidget {
     return const CupertinoApp(
       debugShowCheckedModeBanner: false,
       onGenerateRoute: AppRouter.generateRoute,
-      home: AuthScreen(),
+      home: MainScreen(),
     );
   }
 }
