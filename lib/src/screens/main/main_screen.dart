@@ -1,13 +1,19 @@
 import 'package:flutter/cupertino.dart';
-import 'package:module_1/src/screens/auth/login/auth_screen.dart';
-import 'package:module_1/src/screens/auth/register/register_screen.dart';
+import 'package:module_1/src/screens/main/basket/basket_screen.dart';
+import 'package:module_1/src/screens/main/catalog/catalog_screen.dart';
+// import 'package:module_1/src/screens/main/catalog/catalog_screen.dart';
+import 'package:module_1/src/screens/main/profile/profile_screen.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return CupertinoTabScaffold(
+    return WillPopScope(
+      onWillPop: () async {
+        return false;
+      },
+      child: CupertinoTabScaffold(
         tabBar: CupertinoTabBar(items: const [
           BottomNavigationBarItem(
               icon: Icon(CupertinoIcons.home), label: 'Каталог'),
@@ -20,17 +26,17 @@ class MainScreen extends StatelessWidget {
           return CupertinoTabView(builder: (context) {
             switch (index) {
               case 0:
-                return const AuthScreen();
+                return CatalogScreen();
               case 1:
-                return const RegisterScreen();
+                return BasketScreen();
               case 2:
-                return const AuthScreen();
-              case 3:
-                return const RegisterScreen();
+                return ProfileScreen();
               default:
-                return const RegisterScreen();
+                return ProfileScreen();
             }
           });
-        });
+        },
+      ),
+    );
   }
 }

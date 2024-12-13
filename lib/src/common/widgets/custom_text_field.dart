@@ -5,13 +5,16 @@ class CustomTextField extends StatelessWidget {
   const CustomTextField({
     super.key,
     required this.placeholder,
+    this.controller,
   });
 
   final String placeholder;
+  final TextEditingController? controller;
 
   @override
   Widget build(BuildContext context) {
     return CupertinoTextField(
+      controller: controller,
       placeholder: placeholder,
       decoration:
           const BoxDecoration(color: AuthScreenStyles.textFieldBackgroundColor),
